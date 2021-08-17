@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+
+*{	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+body{
+	font-family: 'Dancing Script', cursive;
+	background-color:#bee2e6;
+
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	overflow: hidden;
+
+}
+.balloon{
+	height: 75px;
+	width: 70px;
+	background-color: crimson;
+
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	border-radius: 45%;
+
+	animation: move 2s ease-in infinite;
+}
+.balloon:before{
+	content: '';
+	height:60px;
+	width: 6px;
+
+	position: absolute;
+	background-color: #fff;
+	top:94%;
+	left:45%;
+}
+@keyframes move{
+	0%{
+		top: 100%
+	}
+	100%{
+		top: 0%
+	}
+}
+
+.balloon:nth-child(2){
+	top:35%;
+	left:90%;
+	background-color: orange;
+
+	animation-duration: 4s;
+}
+
+.balloon:nth-child(3){
+	top:82%;
+	left:80%;
+	background-color: purple;
+
+	animation-duration: 7s;
+}
+
+.balloon:nth-child(4){
+	top:19%;
+	left:82%;
+	background-color: violet;
+
+	animation-duration: 6s;
+}
+
+
+.balloon:nth-child(5){
+	top:70%;
+	left:43%;
+	background-color: green;
+
+	animation-duration: 6s;
+}
+
+
+.balloon:nth-child(6){
+	top:40%;
+	left:65%;
+	background-color: yellow;
+
+	animation-duration: 2s;
+}
+
+
+.balloon:nth-child(7){
+	top:90%;
+	left:20%;
+	background-color: pink;
+
+	animation-duration: 3s;
+}
+
+.music-container{
+	background-color: silver;
+	padding: 20px 50px;
+	border-radius:10px 30px;
+	box-shadow: 20px 30px 30px #bee2e8;
+	margin: 100px 0;
+
+	display: flex;
+
+	z-index: 0;
+
+	position: relative;
+}
+
+.img-container{
+	width: 110px;
+
+	position: relative;
+}
+
+.img-container img{
+	width: inherit;
+	height: 110px;
+	border-radius: 50%;
+	object-fit: cover;
+
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	animation-name:myani;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	animation-play-state: play;
+
+}
+
+.img-container.play .img-container img{
+	animation-play-state: running;
+}
+
+.img-container::after{
+	content: '';
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	border-radius: 50%;
+
+	position: absolute;
+	bottom:50%;
+	left:  50%;
+
+	transform: translate(-50%,-50%);
+}
+
+@keyframes myani{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+
+.controls{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.action-btn{
+	background-color: #fff;
+	color: pink;
+	border:0; 
+	font-size: 20px;
+	padding: 15px;
+	margin: 0 15px;
+
+}
+
+.action-btn.action-btn-big{
+	color: purple;
+	font-size: 30px;
+}
+
+.action-btn:focus{
+	outline: 0;
+}
+
+.music-info{
+	width: calc(100% - 40px);
+	background-color:rgba(255,255,255,0.2);
+	border-radius: 10px 30px 0 0;
+	position: absolute;
+	top:0;
+	left: 20px;
+
+	padding: 1px 1px 10px 150px;
+
+	transform:translateY(0%);
+
+	opacity: 0;
+
+	z-index: -1;	
+}
+
+.music-container.play .music-info{
+	opacity: 1;
+	transform: translateY(-100%);
+}
+
+.music-info h4{
+	margin: 0;
+}
+
+.progress-container{
+	width: 100%;
+	height: 4px;
+	background-color: #fff;
+	border-radius: 5px;   /****/
+	cursor: pointer;
+}
+.progress{
+	width: 0%;
+	height: 100%;
+	background-color: tomato;
+	border-radius: 5px;
+
+}
